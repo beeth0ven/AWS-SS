@@ -1,0 +1,18 @@
+{
+    "Comment": "Update record to reflect new IP address of home router",
+    "Changes": [
+        {
+            "Action": "UPSERT",
+            "ResourceRecordSet": {
+                "Name": "ss.beeth0ven.cf",
+                "Type": "A",
+                "TTL": 300,
+                "ResourceRecords": [
+                    {
+                        "Value": "13.125.43.38"
+                    }
+                ]
+            }
+        }
+    ]
+}
