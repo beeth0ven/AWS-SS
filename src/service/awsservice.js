@@ -1,35 +1,33 @@
-const { Observable } = require('rx');
-const AWS = require('aws-sdk');
-const config = require('./config');
-AWS.config.update({region:'ap-northeast-2'});
+import { Observable } from 'rx';
+import AWS from 'aws-sdk';
+import { ec2InstanceId, awsRegion } from './config';
+
+AWS.config.update({ region: awsRegion });
 const ec2 = new AWS.EC2();
 const route53 = new AWS.Route53();
-const ec2InstanceId = config.ec2InstanceId;
-
-const ec2InstanceParams = { InstanceIds: [ec2InstanceId] };
 
 class AWSService {
 
   static startEC2Instance() {
     console.log('AWSService startEC2Instance');
     const rxStartInstances = Observable.fromNodeCallback(ec2.startInstances.bind(ec2));
-    return rxStartInstances(ec2InstanceParams);
+    return rxStartInstances(AWSService.ec2InstanceParams());
   }
 
   static waitForStarted() {
     console.log('AWSService waitForStarted');
-    return AWSService.waitFor('instanceRunning', ec2InstanceParams);
+    return AWSService.waitFor('instanceRunning', AWSService.ec2InstanceParams());
   }
 
   static stopEC2Instance() {
     console.log('AWSService stopEC2Instance');
     const rxStopInstances = Observable.fromNodeCallback(ec2.stopInstances.bind(ec2));
-    return rxStopInstances(ec2InstanceParams);
+    return rxStopInstances(AWSService.ec2InstanceParams());
   }
 
   static waitForStopped() {
     console.log('AWSService waitForStopped');
-    return AWSService.waitFor('instanceStopped', ec2InstanceParams);
+    return AWSService.waitFor('instanceStopped', AWSService.ec2InstanceParams());
   }
 
   static waitFor(state, params) {
@@ -40,7 +38,7 @@ class AWSService {
   static publicIp() {
     console.log('AWSService publicIp');
     const rxDescribeInstances = Observable.fromNodeCallback(ec2.describeInstances.bind(ec2));
-    return rxDescribeInstances(ec2InstanceParams)
+    return rxDescribeInstances(AWSService.ec2InstanceParams())
       .map(AWSService.dataToPublicIp)
   }
 
@@ -72,9 +70,14 @@ class AWSService {
 
   static dataToPublicIp(data) {
     const ip = data.Reservations[0].Instances[0].PublicIpAddress;
-    console.log('Public Ip:', ip);
+    console.log('AWSService Public Ip:', ip);
     return ip;
+  }
+
+  static ec2InstanceParams() {
+    return { InstanceIds: [ec2InstanceId] };
   }
 }
 
-module.exports = AWSService;
+
+export default AWSService;

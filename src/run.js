@@ -1,4 +1,4 @@
-const AWSService = require('./service/awsservice');
+import AWSService from './service/awsservice';
 
 console.log('Ok Start...');
 

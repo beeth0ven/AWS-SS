@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/dist/src/run.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/service/awsservice.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/service/config.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/dist/src/run.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/service/awsservice.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/service/config.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>
