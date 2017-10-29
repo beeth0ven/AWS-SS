@@ -2,14 +2,17 @@ import AWSService from './service/awsservice';
 
 console.log('Ok Start...');
 
-AWSService.publicIp()
-  .flatMap(AWSService.stopEC2Instance)
-  .flatMap(AWSService.waitForStopped)
-  .flatMap(AWSService.startEC2Instance)
-  .flatMap(AWSService.waitForStarted)
-  .map(AWSService.dataToPublicIp)
-  .flatMap(AWSService.updateSSPublicIp)
+const service = new AWSService();
+
+service.publicIp()
+  .flatMap(service.stopEC2Instance)
+  .flatMap(service.waitForStopped)
+  .flatMap(service.startEC2Instance)
+  .flatMap(service.waitForStarted)
+  .map(service.dataToPublicIp)
+  .flatMap(service.updateSSPublicIp)
   .subscribe(
     data => { console.log('Success with data:', data) },
     error => { console.error('Failed with error:',error) }
   );
+
