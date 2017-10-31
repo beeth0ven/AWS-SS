@@ -2,15 +2,24 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
-        <item url="file://$PROJECT_DIR$/dist/src/run.js" />
-        <item url="file://$PROJECT_DIR$/dist/src/service/awsservice.js" />
         <item url="file://$PROJECT_DIR$/dist/src/service/config.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/service/awsservice.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/framwork/http/response.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/index.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/run.js" />
+        <item url="file://$PROJECT_DIR$/src/framworks/http/response.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/dist/src/run.js" />
-      <root url="file://$PROJECT_DIR$/dist/src/service/awsservice.js" />
+      <root url="file://$PROJECT_DIR$/dist/dist/src/index.js" />
+      <root url="file://$PROJECT_DIR$/dist/dist/src/index.js" />
+      <root url="file://$PROJECT_DIR$/src/framworks/http/response.js" />
       <root url="file://$PROJECT_DIR$/dist/src/service/config.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/service/awsservice.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/framwork/http/response.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/index.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/run.js" />
+      <root url="file://$PROJECT_DIR$/src/framworks/http/response.js" />
     </CLASSES>
     <SOURCES />
   </library>

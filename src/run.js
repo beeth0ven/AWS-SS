@@ -1,18 +1,6 @@
-import AWSService from './service/awsservice';
+import { handler } from './index'
 
-console.log('Ok Start...');
-
-const service = new AWSService();
-
-service.publicIp()
-  .flatMap(service.stopEC2Instance)
-  .flatMap(service.waitForStopped)
-  .flatMap(service.startEC2Instance)
-  .flatMap(service.waitForStarted)
-  .map(service.dataToPublicIp)
-  .flatMap(service.updateSSPublicIp)
-  .subscribe(
-    data => { console.log('Success with data:', data) },
-    error => { console.error('Failed with error:',error) }
-  );
-
+handler(null, null, (error, data) => {
+  if (error) console.error('Callback error:', error);
+  else console.log('Callback data:', data);
+});
